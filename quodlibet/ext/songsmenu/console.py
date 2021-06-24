@@ -544,7 +544,7 @@ class OutFile:
 
 
 class ListChoiceDialog(Gtk.Dialog):
-    """ display listbox to choose an item from `rows` list, returns index if the chosen item or `None`
+    """ display listbox to choose an item from `rows` list, returns index if the chosen item, if positive
     """
 
     def __init__(self, parent, rows):
