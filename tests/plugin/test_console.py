@@ -1,4 +1,5 @@
 # Copyright 2017 Christoph Reiter
+#           2021 halfbrained@github
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

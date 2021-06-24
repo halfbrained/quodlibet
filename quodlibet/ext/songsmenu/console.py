@@ -1,5 +1,6 @@
 # Copyright (C) 2006 - Steve Frécinaux
 #            2016-17 - Nick Boultbee
+#               2021 - halfbrained@github
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
