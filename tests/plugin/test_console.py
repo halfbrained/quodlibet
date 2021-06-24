@@ -13,6 +13,17 @@ from tests.plugin import PluginTestCase
 
 AUDIO_FILE = SongWrapper(AudioFile({'~filename': "/tmp/foobar"}))
 
+class Dummy:
+    dummy_val = "str!"
+
+    def dummy_meth(self, arg, varg=101):
+        pass
+
+DUMMY_COMPLETIONS = [
+    ('dummy_meth', ' (arg, varg=101)'),
+    ('dummy_val',  ''),
+]
+NAMESPACE_COMPLETIONS = ('dummy',   '')
 
 class TConsole(PluginTestCase):
 
@@ -30,3 +41,19 @@ class TConsole(PluginTestCase):
         self.failUnlessEqual(plugin.console.namespace.get('songs'),
                              [AUDIO_FILE])
         plugin.disabled()
+
+    def test_console_completion(self):
+        plugin = self.mod.PyConsoleSidebar()
+        plugin.enabled()
+
+        plugin.console.namespace['dummy'] = Dummy()
+
+        comp = plugin.console.get_completion_items('dummy.')
+        self.failUnlessEqual(comp, DUMMY_COMPLETIONS)
+
+        comp = plugin.console.get_completion_items('')
+        assert NAMESPACE_COMPLETIONS in comp
+
+        plugin.disabled()
+
+
