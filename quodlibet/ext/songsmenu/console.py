@@ -583,9 +583,9 @@ class ListChoiceDialog(Gtk.Dialog):
         content = self.get_content_area()
         content.pack_start(scroll, True, True, 0)
 
-        self.get_action_area().hide()
 
         content.show_all()
+        self.get_action_area().hide()
 
     def on_row_click(self, listbox, row):
         self.response(row.get_index())
